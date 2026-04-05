@@ -17,13 +17,13 @@ int main(void)
 		if(KeyNum == 1)
 		{
 			LED1_Invert();
-			printf("YES,kEY1");
+			printf("YES,kEY1\r\n");
 				
 		}
 		if(KeyNum == 2)
 		{
 			LED2_Invert();
-			printf("YES,kEY2");
+			printf("YES,kEY2\r\n");
 		}
 	 }
 	
