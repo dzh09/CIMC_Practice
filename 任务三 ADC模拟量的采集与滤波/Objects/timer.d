@@ -28,3 +28,4 @@
 .\objects\timer.o: .\library\stm32f10x_usart.h
 .\objects\timer.o: .\library\stm32f10x_wwdg.h
 .\objects\timer.o: .\library\misc.h
+.\objects\timer.o: Hardware\SlidingWindow.h

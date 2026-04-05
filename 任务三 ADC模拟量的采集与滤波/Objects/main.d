@@ -33,3 +33,6 @@
 .\objects\main.o: .\System\fputc.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: .\Hardware\MYUSART.h
+.\objects\main.o: .\Hardware\MYADC.h
+.\objects\main.o: .\Hardware\TIMER.h
+.\objects\main.o: .\Hardware\SlidingWindow.h

@@ -1,4 +1,9 @@
 #include "stm32f10x.h"                  // Device header
+#include "SlidingWindow.h"
+volatile uint8_t raw = 0;
+volatile uint16_t NewAverage;
+static uint8_t Count;
+volatile uint16_t Print_Ready;
 void Timer_Init(void)
 {
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);
@@ -22,4 +27,23 @@ void Timer_Init(void)
 	NVIC_Init(&NVIC_InitStructure);
 	
 	TIM_Cmd(TIM2,ENABLE);
+}
+void TIM2_IRQHandler()
+{
+	while(TIM_GetITStatus(TIM2,TIM_IT_Update)==RESET);
+	TIM_ClearFlag(TIM2,TIM_FLAG_Update);
+	ADC_SoftwareStartConvCmd(ADC1,ENABLE);
+	raw = ADC_GetConversionValue(ADC1);
+	NewAverage = UpdateWindow(raw);
+	
+	Count ++;
+	if(Count > WindowSize)
+	{
+		Count = 0;
+		Print_Ready = 1;
+		
+	}
+	
+
+	
 }

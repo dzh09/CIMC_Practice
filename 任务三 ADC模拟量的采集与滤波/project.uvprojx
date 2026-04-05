@@ -725,6 +725,16 @@
               <FileType>5</FileType>
               <FilePath>.\Hardware\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>SlidingWindow.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\SlidingWindow.c</FilePath>
+            </File>
+            <File>
+              <FileName>SlidingWindow.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\SlidingWindow.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -25,3 +25,5 @@ void MYADC_Init(void)
 	while(ADC_GetCalibrationStatus(ADC1)==RESET);
 }
 
+
+
