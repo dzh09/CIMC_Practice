@@ -36,3 +36,4 @@
 .\objects\main.o: .\Hardware\MYADC.h
 .\objects\main.o: .\Hardware\TIMER.h
 .\objects\main.o: .\Hardware\SlidingWindow.h
+.\objects\main.o: .\Hardware\OLED.h

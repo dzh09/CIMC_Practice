@@ -2,9 +2,10 @@
 #define WindowSize 100
 static uint8_t ADC_Buffer[WindowSize];
 static uint16_t Temp;
-static uint16_t Sum;
+static uint32_t Sum;
 static uint16_t AverageValue;
-int SlidingWindow_Init()
+static uint16_t index = 0;
+void SlidingWindow_Init(void)
 {
 	uint8_t i = 0;
 	for(i=0;i<WindowSize;i++)
@@ -20,10 +21,10 @@ int SlidingWindow_Init()
 }
 int UpdateWindow(uint8_t NewValue)
 {
-	uint8_t index = 0;
 	Sum -= ADC_Buffer[index];
 	ADC_Buffer[index]=NewValue;
 	Sum += ADC_Buffer[index];
+	index = (index + 1)%WindowSize;
 	AverageValue = Sum / WindowSize;
 	return AverageValue;
 }

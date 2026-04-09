@@ -33,6 +33,7 @@
 ".\objects\myadc.o"
 ".\objects\timer.o"
 ".\objects\slidingwindow.o"
+".\objects\oled.o"
 ".\objects\delay.o"
 ".\objects\fputc.o"
 --library_type=microlib --strict --scatter ".\Objects\project.sct"

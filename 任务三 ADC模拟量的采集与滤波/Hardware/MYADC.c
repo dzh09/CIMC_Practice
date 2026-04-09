@@ -3,6 +3,8 @@ void MYADC_Init(void)
 {
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1,ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);
+	RCC_ADCCLKConfig(RCC_PCLK2_Div6);
+	ADC_RegularChannelConfig(ADC1,ADC_Channel_1,1,ADC_SampleTime_55Cycles5);
 	ADC_InitTypeDef ADC_InitStructure;
 	ADC_InitStructure.ADC_ContinuousConvMode=DISABLE;
 	ADC_InitStructure.ADC_DataAlign=ADC_DataAlign_Right;
@@ -20,9 +22,9 @@ void MYADC_Init(void)
 	
 	ADC_Cmd(ADC1,ENABLE);
 	ADC_ResetCalibration(ADC1);
-	while(ADC_GetResetCalibrationStatus(ADC1) == RESET);
+	while(ADC_GetResetCalibrationStatus(ADC1) == SET);
 	ADC_StartCalibration(ADC1);
-	while(ADC_GetCalibrationStatus(ADC1)==RESET);
+	while(ADC_GetCalibrationStatus(ADC1)== SET);
 }
 
 
